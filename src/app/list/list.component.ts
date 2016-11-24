@@ -11,16 +11,19 @@ import { ListElement } from "./list-element";
 
 export class ListComponent implements OnInit {
     list: ListElement[];
+    url: string;
     errorMessage: string;
 
-    constructor(
-        private _listService: ListService,
-        private router: Router) {
+    constructor(private listService: ListService, private router: Router) {
+        this.url = 'https://jsonplaceholder.typicode.com/users';
     }
 
     ngOnInit() {
-        this._listService.fetchList().subscribe(
-            list => this.list = list,
+        this.listService.fetchList(this.url).subscribe(
+            (list) => {
+                this.list = list;
+                console.log('this.list: ', this.list);
+            },
             error => this.errorMessage = <any>error
         );
     }

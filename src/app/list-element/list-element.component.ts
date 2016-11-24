@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ListService } from '../list/list.service';
+import { ListElement } from "../list/list-element";
 
 @Component({
     selector: 'app-list-element',
@@ -8,11 +10,31 @@ import { Router } from '@angular/router';
 })
 
 export class ListElementComponent implements OnInit {
-    constructor(private _router: Router) {}
+    url: string;
+    errorMessage: string;
+    listElement: ListElement;
 
-    ngOnInit() {}
+    constructor(private route: ActivatedRoute, private router: Router, private listService: ListService) {
+    }
+
+    ngOnInit() {
+        this.route.params.subscribe(params => {
+            this.url = this.buildUrl(params);
+            this.listService.fetchListElement(this.url).subscribe(
+                (element) => {
+                    this.listElement = element;
+                    console.log('this.listElement: ', this.listElement);
+                },
+                error => this.errorMessage = <any>error
+            );
+        });
+    }
 
     onBack(): void {
-        this._router.navigate(['list']);
+        this.router.navigate(['list']);
+    }
+
+    buildUrl(params): string {
+        return 'https://jsonplaceholder.typicode.com/users/' + params.id;
     }
 }
