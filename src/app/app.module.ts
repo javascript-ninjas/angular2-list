@@ -3,13 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import 'rxjs/Rx';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ListComponent } from './list/list.component';
+import { ListElementComponent } from './list-element/list-element.component';
 import { ListService } from './list/list.service';
-import 'rxjs/Rx';
 
 const appRoutes: Routes = [
     {
@@ -27,6 +28,10 @@ const appRoutes: Routes = [
         }
     },
     {
+        path: 'element/:id',
+        component: ListElementComponent
+    },
+    {
         path: '**',
         component: PageNotFoundComponent
     }
@@ -37,7 +42,8 @@ const appRoutes: Routes = [
         AppComponent,
         HomeComponent,
         PageNotFoundComponent,
-        ListComponent
+        ListComponent,
+        ListElementComponent
     ],
     imports: [
         BrowserModule,
