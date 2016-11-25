@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ListService } from '../list/list.service';
-import { ListElement } from "../list/list-element";
+import { forEach } from "@angular/router/src/utils/collection";
 
 @Component({
     selector: 'app-list-element',
@@ -12,21 +12,31 @@ import { ListElement } from "../list/list-element";
 export class ListElementComponent implements OnInit {
     url: string;
     errorMessage: string;
-    listElement: ListElement;
 
-    constructor(private route: ActivatedRoute, private router: Router, private listService: ListService) {
-    }
+    id: number;
+    name: string;
+    username: string;
+    email: string;
+    address: Object;
+    phone: string;
+    website: number;
+    company: Object;
+
+    constructor(private route: ActivatedRoute, private router: Router, private listService: ListService) {}
 
     ngOnInit() {
         this.route.params.subscribe(params => {
             this.url = this.buildUrl(params);
             this.listService.fetchListElement(this.url).subscribe(
-                (element) => {
-                    this.listElement = element;
-                    console.log('this.listElement: ', this.listElement);
-                },
+                element => this.setListElementProperties(element),
                 error => this.errorMessage = <any>error
             );
+        });
+    }
+
+    private setListElementProperties(element): void {
+        forEach(element, (value, key) => {
+            this[key] = value;
         });
     }
 

@@ -28,7 +28,7 @@ const appRoutes: Routes = [
         }
     },
     {
-        path: 'element/:id',
+        path: 'list/:id',
         component: ListElementComponent
     },
     {
