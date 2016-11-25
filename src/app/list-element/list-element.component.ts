@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ListService } from '../list/list.service';
+import { ListService } from '../services/list.service';
 import { forEach } from "@angular/router/src/utils/collection";
 
 @Component({
@@ -13,14 +13,10 @@ export class ListElementComponent implements OnInit {
     url: string;
     errorMessage: string;
 
+    userId: number;
     id: number;
-    name: string;
-    username: string;
-    email: string;
-    address: Object;
-    phone: string;
-    website: number;
-    company: Object;
+    title: string;
+    completed: boolean;
 
     constructor(private route: ActivatedRoute, private router: Router, private listService: ListService) {}
 
@@ -45,6 +41,6 @@ export class ListElementComponent implements OnInit {
     }
 
     buildUrl(params): string {
-        return 'https://jsonplaceholder.typicode.com/users/' + params.id;
+        return 'https://jsonplaceholder.typicode.com/todos/' + params.id;
     }
 }

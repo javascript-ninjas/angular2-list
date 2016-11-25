@@ -10,7 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ListComponent } from './list/list.component';
 import { ListElementComponent } from './list-element/list-element.component';
-import { ListService } from './list/list.service';
+import { ListService } from './services/list.service';
+import { PaginationService } from './services/pagination.service';
 
 const appRoutes: Routes = [
     {
@@ -51,7 +52,7 @@ const appRoutes: Routes = [
         HttpModule,
         RouterModule.forRoot(appRoutes)
     ],
-    providers: [ListService],
+    providers: [ListService, PaginationService],
     bootstrap: [AppComponent]
 })
 
