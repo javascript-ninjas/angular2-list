@@ -19,7 +19,7 @@ export class ListComponent implements OnInit {
     pagedItems: any[];
 
     constructor(private listService: ListService, private router: Router, private paginationService: PaginationService) {
-        this.url = 'https://jsonplaceholder.typicode.com/todos';
+        this.url = 'https://jsonplaceholder.typicode.com/photos';
     }
 
     ngOnInit() {

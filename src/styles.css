@@ -6,3 +6,28 @@ a, li span {
 ul {
     list-style-type: none;
 }
+
+ul li {
+    line-height: 25px;
+    text-decoration: none;
+}
+
+ul li:hover {
+    text-decoration: underline;
+}
+
+.main-wrapper {
+    margin: 0 auto;
+    padding: 0;
+    width: 800px;
+    height: auto;
+}
+
+.element-description-wrapper img {
+    float: left;
+    margin-right: 15px;
+}
+
+.clear {
+    clear: both;
+}

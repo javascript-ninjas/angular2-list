@@ -10,29 +10,45 @@ import { forEach } from "@angular/router/src/utils/collection";
 })
 
 export class ListElementComponent implements OnInit {
-    url: string;
+    requestUrl: string;
     errorMessage: string;
 
-    userId: number;
+    albumId: number;
     id: number;
+    url: string;
     title: string;
-    completed: boolean;
+    thumbnailUrl: string;
+    description: string;
 
     constructor(private route: ActivatedRoute, private router: Router, private listService: ListService) {}
 
     ngOnInit() {
         this.route.params.subscribe(params => {
-            this.url = this.buildUrl(params);
-            this.listService.fetchListElement(this.url).subscribe(
-                element => this.setListElementProperties(element),
+            this.requestUrl = this.buildUrl(params);
+            this.listService.fetchListElement(this.requestUrl).subscribe(
+                element => this.setListElement(element),
                 error => this.errorMessage = <any>error
             );
         });
     }
 
-    private setListElementProperties(element): void {
+    private setListElementProperties(key, value) {
+        this[key] = value;
+        if (key === 'title')
+            this.description = this.parseDescription(value);
+    }
+
+    private parseDescription(text): string {
+        let description = null;
+        for (let i=0; i<60; i++) {
+            description += text;
+        }
+        return description;
+    }
+
+    private setListElement(element): void {
         forEach(element, (value, key) => {
-            this[key] = value;
+            this.setListElementProperties(key, value);
         });
     }
 
@@ -41,6 +57,6 @@ export class ListElementComponent implements OnInit {
     }
 
     buildUrl(params): string {
-        return 'https://jsonplaceholder.typicode.com/todos/' + params.id;
+        return 'https://jsonplaceholder.typicode.com/photos/' + params.id;
     }
 }

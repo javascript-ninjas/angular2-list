@@ -1,7 +1,6 @@
 <ul>
     <li *ngFor="let element of pagedItems" (click)="onSelect(element)">
-        <span> {{element.id}} - </span>
-        <span>{{ element.title }}</span>
+        <span> {{ element.id }}-tytuł-{{ element.title }}</span>
     </li>
 </ul>
 

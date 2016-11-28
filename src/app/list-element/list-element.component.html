@@ -1,9 +1,11 @@
-<ul>
-    <li>{{userId}}</li>
-    <li>{{id}}</li>
-    <li>{{title}}</li>
-    <li>{{completed}}</li>
-</ul>
+<div *ngIf="id">
+    <p>{{id}}-tytuł-{{title}}</p>
+    <div class="element-description-wrapper">
+        <img src="{{thumbnailUrl}}">
+        <p>description: {{description}}</p>
+        <div class="clear"></div>
+    </div>
+</div>
 
 <a (click)="onBack()">
     Back
