@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
-import * as _ from 'underscore';
+import { Utils } from '../utils/utils';
 
 const MAX_ITEMS_PER_PAGE = 10;
 const MAX_ITEMS_HALF = MAX_ITEMS_PER_PAGE / 2;
+const utils = new Utils();
 
 @Injectable()
 export class PaginationService {
-    constructor() {}
+    constructor() {
+    }
 
-    private createPagesArray(startPage, endPage): Array<number> {
-        return _.range(startPage, endPage + 1);
+    createPagesArray(startPage, endPage): Array<number> {
+        return utils.range(startPage, endPage + 1);
     }
 
     private calculateTotalPages(totalItems: number, pageSize: number) {
