@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { MaterialModule } from '@angular/material';
 import 'rxjs/Rx';
 
 import { AppComponent } from './app.component';
@@ -50,7 +51,8 @@ const appRoutes: Routes = [
         BrowserModule,
         FormsModule,
         HttpModule,
-        RouterModule.forRoot(appRoutes)
+        RouterModule.forRoot(appRoutes),
+        MaterialModule.forRoot()
     ],
     providers: [ListService, PaginationService],
     bootstrap: [AppComponent]
