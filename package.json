@@ -5,7 +5,7 @@
     "angular-cli": {},
     "scripts": {
         "start": "ng serve",
-        "build": "ng build -prod --aot --base-href angular2-list",
+        "build": "ng build -prod --aot",
         "clear": "rm -rf dist/",
         "lint": "tslint \"src/**/*.ts\"",
         "test": "ng test",
