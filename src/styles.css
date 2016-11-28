@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #fafafa;
+    color: rgba(0, 0, 0, 0.87);
+}
+
 a, li span {
     cursor: pointer;
 }
@@ -23,9 +28,26 @@ ul li span:hover {
     height: auto;
 }
 
+nav.main-navigation {
+    margin: 20px 0 0 0;
+}
+
 .element-description-wrapper img {
     float: left;
     margin-right: 15px;
+}
+
+.md-card {
+    margin: 20px 0;
+}
+
+.md-card-content:hover {
+    text-decoration: none;
+}
+
+.md-card-content {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .clear {
