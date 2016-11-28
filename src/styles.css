@@ -21,6 +21,10 @@ ul li span:hover {
     text-decoration: none;
 }
 
+p.title {
+    font-weight: bold;
+}
+
 .main-wrapper {
     margin: 0 auto;
     padding: 0;
