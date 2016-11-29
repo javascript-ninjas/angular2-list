@@ -17,6 +17,11 @@ import { PaginationService } from './services/pagination.service';
 const appRoutes: Routes = [
     {
         path: '',
+        redirectTo: '/home',
+        pathMatch: 'full'
+    },
+    {
+        path: 'home',
         component: HomeComponent,
         data: {
             title: 'Welcome component title'
