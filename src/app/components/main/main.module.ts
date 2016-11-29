@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { PathLocationStrategy, LocationStrategy } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 import 'rxjs/Rx';
 
@@ -39,8 +40,11 @@ const appRoutes: Routes = [
         component: ListElementComponent
     },
     {
-        path: '**',
+        path: '404',
         component: PageNotFoundComponent
+    },
+    {
+        path: '**', redirectTo: '/404'
     }
 ];
 
@@ -59,7 +63,7 @@ const appRoutes: Routes = [
         RouterModule.forRoot(appRoutes),
         MaterialModule.forRoot()
     ],
-    providers: [ListService, PaginationService],
+    providers: [ListService, PaginationService, { provide: LocationStrategy, useClass: PathLocationStrategy }],
     bootstrap: [MainComponent]
 })
 
