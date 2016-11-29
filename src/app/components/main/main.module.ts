@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-import { PathLocationStrategy, LocationStrategy } from '@angular/common';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 import 'rxjs/Rx';
 
@@ -63,7 +63,7 @@ const appRoutes: Routes = [
         RouterModule.forRoot(appRoutes),
         MaterialModule.forRoot()
     ],
-    providers: [ListService, PaginationService, { provide: LocationStrategy, useClass: PathLocationStrategy }],
+    providers: [ListService, PaginationService, { provide: LocationStrategy, useClass: HashLocationStrategy }],
     bootstrap: [MainComponent]
 })
 
