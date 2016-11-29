@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { ListElementComponent } from '../list-element/list-element.component';
+import { ListElementComponent } from '../components/list-element/list-element.component';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()

@@ -6,13 +6,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 import 'rxjs/Rx';
 
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ListComponent } from './list/list.component';
-import { ListElementComponent } from './list-element/list-element.component';
-import { ListService } from './services/list.service';
-import { PaginationService } from './services/pagination.service';
+import { MainComponent } from '../main/main.component';
+import { HomeComponent } from '../home/home.component';
+import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+import { ListComponent } from '../list/list.component';
+import { ListElementComponent } from '../list-element/list-element.component';
+import { ListService } from '../../services/list.service';
+import { PaginationService } from '../../services/pagination.service';
 
 const appRoutes: Routes = [
     {
@@ -46,7 +46,7 @@ const appRoutes: Routes = [
 
 @NgModule({
     declarations: [
-        AppComponent,
+        MainComponent,
         HomeComponent,
         PageNotFoundComponent,
         ListComponent,
@@ -60,7 +60,7 @@ const appRoutes: Routes = [
         MaterialModule.forRoot()
     ],
     providers: [ListService, PaginationService],
-    bootstrap: [AppComponent]
+    bootstrap: [MainComponent]
 })
 
 export class AppModule {

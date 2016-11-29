@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ListService } from '../services/list.service';
+import { ListService } from '../../services/list.service';
 import { forEach } from "@angular/router/src/utils/collection";
 
 @Component({

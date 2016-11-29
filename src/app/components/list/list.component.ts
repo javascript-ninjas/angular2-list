@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ListService } from '../services/list.service';
-import { PaginationService } from '../services/pagination.service';
+import { ListService } from '../../services/list.service';
+import { PaginationService } from '../../services/pagination.service';
 import { ListElementComponent } from "../list-element/list-element.component";
 
 @Component({
