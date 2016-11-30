@@ -1,0 +1,12 @@
+button {
+    margin: 15px 0 0 0;
+}
+
+.element-description-wrapper img {
+    float: left;
+    margin: 0 15px 0 0;
+}
+
+.clear {
+    clear: both;
+}

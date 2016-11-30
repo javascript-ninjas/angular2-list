@@ -1,0 +1,27 @@
+<md-card>
+    <md-list *ngFor="let element of pagedItems" (click)="onSelect(element)">
+        <md-list-item class="list-element"> {{ element.id }}-title-{{ element.title }}</md-list-item>
+    </md-list>
+</md-card>
+
+<md-card *ngIf="pager.pages && pager.pages.length" class="pagination">
+    <button md-raised-button [ngClass]="{'md-primary':pager.currentPage != 1}" (click)="setPage(1)">
+        First
+    </button>
+
+    <button md-raised-button [ngClass]="{'md-primary':pager.currentPage != 1}" (click)="setPage(pager.currentPage - 1)">
+        Previous
+    </button>
+
+    <button md-raised-button *ngFor="let page of pager.pages" [ngClass]="{'md-accent':pager.currentPage === page}" (click)="setPage(page)">
+        {{page}}
+    </button>
+
+    <button md-raised-button [ngClass]="{'md-primary':pager.currentPage != pager.totalPages}" (click)="setPage(pager.currentPage + 1)">
+        Next
+    </button>
+
+    <button md-raised-button [ngClass]="{'md-primary':pager.currentPage != pager.totalPages}" (click)="setPage(pager.totalPages)">
+        Last
+    </button>
+</md-card>

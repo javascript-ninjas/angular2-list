@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #fafafa;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+p.title {
+    font-weight: bold;
+}
+
+.main-wrapper {
+    margin: 0 auto;
+    padding: 0;
+    width: 1280px;
+    height: auto;
+}
+
+.md-card {
+    margin: 20px 0;
+}
+
+.list-element .md-list-item {
+    height: 30px;
+}

@@ -1,0 +1,11 @@
+<md-card *ngIf="id">
+    <p class="title">{{id}}-title-{{title}}</p>
+    <div class="element-description-wrapper">
+        <img src="{{thumbnailUrl}}">
+        <p>description: {{description}}</p>
+        <div class="clear"></div>
+    </div>
+    <button md-raised-button class="md-primary" (click)="onBack()">
+        Back
+    </button>
+</md-card>
